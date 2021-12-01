@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+if ["$1" = "-r"];then
+   
+fi
+
+#echo "<span id="imAnID" hello>extractme</span>" | grep -oE 'id=.?imAnID[^<>]*>[^<>]+' | cut -d'>' -f2
+#jq -r '.dai.usd'
+#mlq -r '#imAnID'
+# when extracting content of a tag, also enable to parse its nested tags:
+#mlq -r '#imAnID#childID'
+# also extract classes:
+#mlq -r '#imAnID#childID.anotherchild'
+# be able to replace or append content into tags/ids
