@@ -4,7 +4,7 @@ if [ "$1" = "-r" ];then
    if [ "$2" != "" ];then
       if [ "$3" != "" ];then
          singletagid=$(echo "$2" | tr -d "#")
-         cat $3 | grep -oE "id=.?\"$singletagid\"[^<>]*>[^<>]+" | cut -d'>' -f2
+         cat $3 | grep -oE "id=.?\"$singletagid\"[^<>]*>[^<>]+" | cut -d'>' -f2; exit 0
          else
             echo "Missing the HTML file you want to use."; exit 1
 fi
@@ -13,9 +13,36 @@ fi
 fi
 fi
 
-#cat index.html | grep -oE 'id=.?daipeg[^<>]*>[^<>]+' | cut -d'>' -f2
-#jq -r '.dai.usd'
-#mlq -r '#imAnID'
+if [ "$1" != "-r" ];then
+   if [ "$1" != "" ];then
+      if [ "$2" != "" ];then
+         sh ./mlq-parser.sh --write "$1" "$2"
+         else
+            echo "Missing the HTML file you want to use."; exit 1
+fi
+      else
+         echo "Missing the HTML tag ID you want to operate."; exit 1
+fi
+fi
+
+if [ "$1" = "babyisalive" ]; then
+   exit 0
+fi
+
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+   echo "Use these commands after/together with 'mlq' command."
+   echo "Available commands:"
+   echo "   mlq -r '#imAnID' file.html  Reads the content of a given tag by its ID"
+   echo "   mlq '#imAnID = \"<desired>CONTENT</desired>\"' file.html  Writes any desired content inside a given tag by id on-the-fly"
+   echo "   --help, -h                  Shows all available commands"
+#   echo "   --version, -v               Shows info about OS name, version and build version"
+fi
+
+#mlq '#imAnID = "replaceinsidetag"' file.html
+#cat file.html | htmlq -p
+
+#parser receives instruction/flag from mlq, validates and passes its own flags to worker
+#parser_worker runs/loops the flags it received
 
 # when extracting content of a tag, also enable to parse its nested tags:
 #mlq -r '#imAnID#childID'
