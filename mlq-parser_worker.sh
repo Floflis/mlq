@@ -16,5 +16,6 @@ if [ "$1" = "--singletag" ];then
 # one line with tricks -->
    xmlstarlet ed -L -u "//_:*[@id='$2']" -v "$3" /tmp/mlq-output.html
    cat /tmp/mlq-output.html
+#-   cat /tmp/mlq-output.html | htmlq -p
    rm -f /tmp/mlq-output.html
 fi

@@ -16,9 +16,11 @@ fi
 if [ "$1" != "-r" ];then
    if [ "$1" != "" ];then
       if [ "$2" != "" ];then
-         sh ./mlq-parser.sh --write "$1" "$2"
-         else
-            echo "Missing the HTML file you want to use."; exit 1
+         if [ "$1" != "babyisalive" ] || [ "$1" != "--help" ] || [ "$1" != "-h" ];then
+            sh ./mlq-parser.sh --write "$1" "$2"
+            else
+               echo "Missing the HTML file you want to use."; exit 1
+fi
 fi
       else
          echo "Missing the HTML tag ID you want to operate."; exit 1
@@ -39,7 +41,6 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
 fi
 
 #mlq '#imAnID = "replaceinsidetag"' file.html
-#cat file.html | htmlq -p
 
 #parser receives instruction/flag from mlq, validates and passes its own flags to worker
 #parser_worker runs/loops the flags it received
