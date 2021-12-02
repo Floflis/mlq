@@ -6,5 +6,5 @@ if [ "$1" = "--write" ];then
 #   sh ./mlq-parser_worker.sh --tree
 #   sh ./mlq-parser_worker.sh --insert
    tagtreesingle=$(echo "$tagtree" | tr -d "'")
-   sh ./mlq-parser_worker.sh --singletag $tagtreesingle $text_to_insert $3
+   bash /usr/lib/mlq/mlq-parser_worker.sh --singletag $tagtreesingle $text_to_insert $3
 fi
