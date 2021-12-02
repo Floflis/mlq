@@ -1,12 +1,22 @@
 #!/bin/bash -e
 
-if ["$1" = "-r"];then
-   
+if [ "$1" = "-r" ];then
+   if [ "$2" != "" ];then
+      if [ "$3" != "" ];then
+         singletagid=$(echo "$2" | tr -d "#")
+         cat $3 | grep -oE "id=.?\"$singletagid\"[^<>]*>[^<>]+" | cut -d'>' -f2
+         else
+            echo "Missing the HTML file you want to use."; exit 1
+fi
+      else
+         echo "Missing the HTML tag ID you want to operate."; exit 1
+fi
 fi
 
-#echo "<span id="imAnID" hello>extractme</span>" | grep -oE 'id=.?imAnID[^<>]*>[^<>]+' | cut -d'>' -f2
+#cat index.html | grep -oE 'id=.?daipeg[^<>]*>[^<>]+' | cut -d'>' -f2
 #jq -r '.dai.usd'
 #mlq -r '#imAnID'
+
 # when extracting content of a tag, also enable to parse its nested tags:
 #mlq -r '#imAnID#childID'
 # also extract classes:
