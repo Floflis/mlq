@@ -17,7 +17,7 @@ if [ "$1" != "-r" ];then
    if [ "$1" != "" ];then
       if [ "$2" != "" ];then
          if [ "$1" != "babyisalive" ] || [ "$1" != "--help" ] || [ "$1" != "-h" ];then
-            bash /usr/lib/mlq/mlq-parser.sh --write "$1" "$2"
+            bash /usr/lib/mlq/mlq-parser.sh --write "${1}" "$2"
             else
                echo "Missing the HTML file you want to use."; exit 1
 fi
