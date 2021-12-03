@@ -10,6 +10,10 @@ fi
 
 if [ "$1" = "--singletag" ];then
    cp $4 /tmp/mlq-output.html
+   echo "mitigate 1: $1"
+   echo "mitigate 2: $2"
+   echo "mitigate 3: $3"
+   echo "mitigate 4: $4"
 #   xmlstarlet ed --inplace -N X='http://www.w3.org/1999/xhtml' \
 #--update '//X:element[@id="daipeg"]' --value 'new' index.html
 # <-- most solid
