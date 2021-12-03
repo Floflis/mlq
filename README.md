@@ -70,3 +70,10 @@ The positive points about mlq:
 
 - short name/command
 - lower entry barrier, as there are more Bash than C/Rust/Perl developers (so it can have more features than others and developed in a faster pace)
+
+----
+
+## mlq is used by:
+
+- [Floflis Status server](http://status.floflis.com/)
+- [Firedoge browser](https://github.com/zilldao/firedoge)
