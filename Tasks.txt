@@ -1,5 +1,19 @@
+example use variable
+mlq "#first = \"$use\"" sample.html
+
+tests:
+❯ echo "#imAnID#childID" | grep -o '#[[:alpha:]]\+*' | awk 'NF { print "\""$0"\""}' | tr "\n" " " | tr '"' "'" | tr -d '#'
+'imAnID' 'childID'
+
+❯ echo '#imAnID = "replaceinsidetag"' | grep -o '"[[:alpha:]]\+*"' | tr -d '"'
+replaceinsidetag
+
 Support stdout in place of file.html (like jq)
 add <html xmlns="http://www.w3.org/1999/xhtml"> then remove (except when its already present before)
 
-example use variable
-mlq "#first = \"$use\"" sample.html
+Support to append:
+xmlstarlet ed -L -N X='http://www.w3.org/1999/xhtml' \
+--var peg '//X:element[@id="daipeg"]' \
+#--var res "usetextvariable" \
+#-u '$peg' -x 'concat($peg," and then ",$res)' index.html
+-u '$peg' -x 'concat($peg," use text or variable")' index.html
