@@ -1,0 +1,5 @@
+Support stdout in place of file.html (like jq)
+add <html xmlns="http://www.w3.org/1999/xhtml"> then remove (except when its already present before)
+
+example use variable
+mlq "#first = \"$use\"" sample.html
