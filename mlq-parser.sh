@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 if [ "$1" = "--write" ];then
-   text_to_insert=$(echo "$2" | grep -o '"...\+"' | tr -d '"')
+#   text_to_insert=$(echo "$2" | grep -o '"...\+"' | tr -d '"')
+   text_to_insert=$(echo "$2" | grep -o '".\+"' | tr -d '"')
 #   echo "it have to work: $2"
 #   echo "the previous did work. But: $text_to_insert"
    tagtree=$(echo "$2" | grep -o '#[[:alpha:]]\+*' | awk 'NF { print "\""$0"\""}' | tr "\n" " " | tr '"' "'" | tr -d '#')
