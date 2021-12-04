@@ -1,3 +1,5 @@
+Make a custom "shc -f " which finds "bash <path/path> flags" and replaces "bash <path/path>" to the compiled dependencies (use on Plugz)
+
 make examples at README.md compatible with sample.html
 
 support to HTML classes/CSS selectors
