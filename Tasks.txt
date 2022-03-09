@@ -1,5 +1,11 @@
 Make a custom "shc -f " which finds "bash <path/path> flags" and replaces "bash <path/path>" to the compiled dependencies (use on Plugz)
 
+get all tags that contain "version"
+cat Floflis\ Central.caproj | grep -oE ".?version[^<>]*>[^<>]+" | cut -d'>' -f
+
+get only the second tag that contain "version"
+cat Floflis\ Central.caproj | grep -oE ".?version[^<>]*>[^<>]+" | cut -d'>' -f2 | sed -n '2 p'
+
 make examples at README.md compatible with sample.html
 
 support to HTML classes/CSS selectors
