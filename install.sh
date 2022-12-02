@@ -4,7 +4,7 @@ echo "Installing mlq..."
 
 sudo cp -f mlq /usr/bin/mlq
 
-sudo mkdir /usr/lib/mlq
+if [ ! -e /usr/lib/mlq ]; then sudo mkdir /usr/lib/mlq; fi
 sudo cp -f mlq-parser.sh /usr/lib/mlq/mlq-parser.sh
 sudo cp -f mlq-parser_worker.sh /usr/lib/mlq/mlq-parser_worker.sh
 sudo cp -f sample.html /usr/lib/mlq/sample.html
